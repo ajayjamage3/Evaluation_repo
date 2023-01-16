@@ -23,7 +23,7 @@ postRouter.post("/create",async(req,res)=>{
     }
 })
 
-postRouter.post("/update/:id",async(req,res)=>{
+postRouter.patch("/update/:id",async(req,res)=>{
     const post = await PostModel.findOne({"_id":req.params.id})
     const postId = post.userId
     const userId = req.body.userId
@@ -41,7 +41,7 @@ postRouter.post("/update/:id",async(req,res)=>{
         res.send("something went wrong")
     }
 })
-postRouter.post("/delete/:id",async(req,res)=>{
+postRouter.delete("/delete/:id",async(req,res)=>{
     const post = await PostModel.findOne({"_id":req.params.id})
     const postId = post.userId
     const userId = req.body.userId
